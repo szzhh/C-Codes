@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+int a[6][6],i,j,n,itemp,temp[1][6];
+for(i=0;i<6;i++)
+{ 
+    for(j=0;j<6;j++)
+    a[i][j]=rand()%99;
+} 
+for(i=0;i<6;i++)
+{
+     for(j=0;j<6;j++)
+     { 
+      printf("%d\t",a[i][j]);
+     } 
+    printf("\n");
+}
+
+ for(n=1;n<=5;n++) 
+  {
+  	for(j=0;j<6-n;j++)
+  	{
+	  	if(a[0][j]<a[0][j+1])
+	  	{
+	  		itemp=a[0][j];
+	  		a[0][j]=a[0][j+1];
+	  		a[0][j+1]=itemp;
+	  	}
+	  }
+  }
+
+for(j=0;j<6;j++)
+{
+temp[0][j]=a[0][j];
+a[0][j]=a[5][j];
+a[5][j]=temp[0][j];
+}
+printf("\n");
+for(i=0;i<6;i++)
+{
+     for(j=0;j<6;j++)
+     { 
+      printf("%d\t",a[i][j]);
+     } 
+printf("\n");
+}
+}
